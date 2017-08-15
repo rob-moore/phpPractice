@@ -8,10 +8,10 @@
 
 return [
     'database' => [
-        'name' => //database name,
-        'username' => //database username,
-        'password' => //database passwords,
-        'connection' => //mysql:host=127.0.0.1,
+        'name' => '//database name',
+        'username' => '//database username',
+        'password' => '//database passwords',
+        'connection' => '//mysql:host=127.0.0.1',
         'options' => [
         ]
     ],
