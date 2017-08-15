@@ -6,6 +6,8 @@
  * Time: 10:24 AM
  */
 
+namespace App\Core;
+
 class Request
 {
     public static function uri()
