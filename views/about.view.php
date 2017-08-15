@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Cool php</title>
-</head>
-
-<body>
-<h1>About us</h1>
+<?php require('partials/head.php');?>
 
 
-</body>
-</html>
+<?php require('partials/nav.php'); ?>
+
+        <h1>About us</h1>
+
+<?php require('partials/footer.php'); ?>

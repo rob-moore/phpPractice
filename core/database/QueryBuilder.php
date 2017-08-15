@@ -20,4 +20,13 @@ class QueryBuilder
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
+
+    public function insertTodo($item)
+    {
+        $statement = $this->pdo->
+        prepare("insert into `todos` (`id`, `description`, `completed`) values (NULL, '{$item}', '0')")
+            ->execute();
+
+        return $statement;
+    }
 }
