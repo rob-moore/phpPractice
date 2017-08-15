@@ -9,6 +9,7 @@
 class QueryBuilder
 {
     protected $pdo;
+
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
@@ -21,11 +22,25 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function insertTodo($item)
+    public function insert($table, $item)
     {
-        $statement = $this->pdo->
-        prepare("insert into `todos` (`id`, `description`, `completed`) values (NULL, '{$item}', '0')")
-            ->execute();
+
+        $sql = sprintf(
+            'insert into %s (%s) values (%s)',
+            $table,
+            implode(', ', array_keys($item)),
+            ':' . implode(', :', array_keys($item))
+        );
+
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($item);
+        } catch (Exception $e) {
+            die('We ran into an error.');
+        }
+
 
         return $statement;
     }
